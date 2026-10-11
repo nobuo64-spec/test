@@ -473,7 +473,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* 掲示板（Supabase 連携） */
 const SUPABASE_URL='https://itnasqljgqbarcgpearh.supabase.co';
-const SUPABASE_KEY='YOUR_SUPABASE_PUBLISHABLE_KEY'; // sb_publishable_... を設定（sb_secret_ は絶対に入れない）
+const SUPABASE_KEY='sb_publishable_b2GIYYAwcc7xcVxKUaaq0g_6_NDJk3e'; // 公開用キー（sb_secret_ は絶対に入れない）
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const postsEl=document.getElementById('posts');
 const boardForm=document.getElementById('boardForm');
