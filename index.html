@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOBUSAN_BASE | 野球塾 パーソナルレッスン</title>
+<meta name="description" content="マンツーマンで「うまくなる」を実感できる野球塾 NOBUSAN_BASE。打撃・投球・守備・走塁をあなた専用メニューで指導します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1d36;
+  --navy2:#12294a;
+  --red:#d62828;
+  --cream:#f7f3ea;
+  --ink:#1b2430;
+  --gray:#6b7480;
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--cream);line-height:1.8}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.en{font-family:"Oswald",sans-serif;letter-spacing:.08em}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,29,54,.92);backdrop-filter:blur(6px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{color:#fff;font-size:1.4rem;font-weight:700}
+.logo span{color:var(--red)}
+nav ul{display:flex;gap:24px;list-style:none}
+nav a{color:#fff;font-size:.9rem;font-weight:500}
+nav a:hover{color:#ff8b8b}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden;
+  background:
+   radial-gradient(circle at 80% 20%,rgba(214,40,40,.35),transparent 45%),
+   linear-gradient(160deg,var(--navy) 30%,#1c3d6e 100%)}
+.hero::before{ /* baseball stitches */
+  content:"";position:absolute;right:-140px;bottom:-140px;width:520px;height:520px;border-radius:50%;
+  background:#fff;opacity:.07;
+  box-shadow:inset 0 0 0 14px rgba(214,40,40,.0);
+}
+.hero::after{
+  content:"";position:absolute;right:-60px;bottom:-60px;width:360px;height:360px;border-radius:50%;
+  border:6px dashed rgba(214,40,40,.45);
+}
+.hero .wrap{position:relative;z-index:1;padding-top:80px}
+.hero .tag{display:inline-block;background:var(--red);padding:2px 14px;font-size:.85rem;font-weight:700;margin-bottom:18px}
+.hero h1{font-size:clamp(2.2rem,6.5vw,4.4rem);line-height:1.25;font-weight:900}
+.hero h1 em{font-style:normal;color:#ff6b6b}
+.hero p{margin-top:20px;max-width:560px;font-size:1.05rem;opacity:.92}
+.btns{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 32px;font-weight:700;border-radius:999px;transition:.2s;border:2px solid var(--red)}
+.btn.primary{background:var(--red);color:#fff}
+.btn.primary:hover{background:#b01f1f;border-color:#b01f1f}
+.btn.ghost{color:#fff;border-color:#fff}
+.btn.ghost:hover{background:#fff;color:var(--navy)}
+
+/* sections */
+section{padding:88px 0}
+.sec-title{text-align:center;margin-bottom:48px}
+.sec-title .en{display:block;color:var(--red);font-size:1rem}
+.sec-title h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;color:var(--navy)}
+.sec-title h2::after{content:"";display:block;width:56px;height:4px;background:var(--red);margin:12px auto 0}
+
+/* concept */
+.concept{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.concept p+p{margin-top:1em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--navy);color:#fff;text-align:center;padding:28px 8px;border-radius:12px}
+.stat b{display:block;font-family:"Oswald";font-size:2.2rem;color:#ff6b6b;line-height:1.2}
+.stat small{font-size:.8rem}
+
+/* action gallery */
+.fire{background:linear-gradient(180deg,#06101f,#1a0a0a 60%,#06101f);color:#fff}
+.fire .sec-title h2{color:#fff}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.shot{position:relative;overflow:hidden;border-radius:14px;aspect-ratio:4/5;
+  background:
+   radial-gradient(ellipse at 50% 85%,#ffb300 0%,#ff5a00 28%,#9b1010 55%,transparent 80%),
+   radial-gradient(circle at 20% 0%,rgba(255,255,255,.35),transparent 30%),
+   linear-gradient(#0b1d36,#1a0a0a);
+  box-shadow:0 10px 30px rgba(214,40,40,.35);transition:transform .3s}
+.shot:hover{transform:translateY(-6px) scale(1.02)}
+.shot svg{position:absolute;inset:0;width:100%;height:100%}
+.shot .fig{fill:none;stroke:#05080f;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 7px #ffc04d)}
+.shot .fx path{stroke:rgba(255,255,255,.7);stroke-width:3;stroke-linecap:round;fill:none}
+.shot .swing{fill:none;stroke:rgba(255,255,255,.85);stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 8px #fff)}
+.shot .ball{fill:#fff;filter:drop-shadow(0 0 10px #fff)}
+.shot .dust{fill:none;stroke:rgba(0,0,0,.55);stroke-width:18;stroke-linecap:round}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;
+  background:linear-gradient(transparent,rgba(0,0,0,.8));display:flex;align-items:baseline;gap:10px}
+.shot figcaption b{font-size:1.5rem;font-weight:900}
+.shot figcaption span{font-family:"Oswald";color:#ffb347;letter-spacing:.15em}
+@media(max-width:820px){.shots{grid-template-columns:1fr;max-width:380px;margin:0 auto}}
+
+/* strengths */
+.dark{background:var(--navy);color:#fff}
+.dark .sec-title h2{color:#fff}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--navy2);border-radius:14px;padding:32px 24px;border-top:4px solid var(--red)}
+.card .num{font-family:"Oswald";color:var(--red);font-size:2.4rem;line-height:1}
+.card h3{margin:10px 0;font-size:1.15rem}
+.card p{font-size:.92rem;opacity:.85}
+
+/* lesson */
+.lessons{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.lesson{background:#fff;border-radius:14px;padding:28px 20px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.lesson{padding:0 0 24px;overflow:hidden}
+.lesson .ph{aspect-ratio:4/3;overflow:hidden;margin-bottom:16px}
+.lesson .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.lesson h3,.lesson p{padding:0 18px}
+.lesson h3{margin:8px 0;color:var(--navy)}
+.lesson p{font-size:.88rem;color:var(--gray)}
+
+/* vision */
+.vision{display:flex;gap:28px;align-items:center;margin-top:28px;background:var(--navy);color:#fff;border-radius:14px;padding:32px;border-left:6px solid var(--red)}
+.vision .ic{font-size:3.4rem}
+.vision .en{color:#ff6b6b;font-size:.85rem}
+.vision h3{font-size:1.3rem;margin:2px 0 8px}
+.vision p{font-size:.93rem;opacity:.92}
+.vision .future{margin-top:8px;font-size:.88rem;color:#ffd0a0}
+@media(max-width:820px){.vision{flex-direction:column;text-align:left;align-items:flex-start;padding:24px}}
+
+/* coach */
+.coach{display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:center;max-width:820px;margin:0 auto}
+.photo{aspect-ratio:1;border-radius:50%;background:var(--navy2);border:4px solid var(--red);display:grid;place-items:center;text-align:center;color:#8da2bf;font-size:.85rem}
+.photo{overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.role{color:#ff6b6b;font-weight:700;font-size:.9rem}
+.coach h3{font-size:1.8rem;margin:2px 0 10px}
+.coach h3 small{font-size:.85rem;color:#8da2bf;margin-left:8px}
+.coach h4{margin-top:18px;color:#ff6b6b;font-size:.95rem}
+.coach ul{margin-top:6px;list-style:none;font-size:.9rem;opacity:.85}
+.coach li{border-top:1px solid rgba(255,255,255,.15);padding:6px 0}
+@media(max-width:820px){.coach{grid-template-columns:1fr;justify-items:center;text-align:left}.photo{width:200px}}
+
+/* flow */
+.flow{max-width:720px;margin:0 auto;list-style:none;counter-reset:s}
+.flow li{counter-increment:s;position:relative;background:#fff;border-radius:12px;padding:20px 24px 20px 84px;margin-bottom:18px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.flow li::before{content:counter(s);position:absolute;left:20px;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  background:var(--red);color:#fff;font:700 1.3rem "Oswald";display:grid;place-items:center}
+.flow h3{color:var(--navy);font-size:1.05rem}
+.flow p{font-size:.9rem;color:var(--gray)}
+
+/* price */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.price{background:#fff;border-radius:14px;padding:32px 20px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.07)}
+.price.hot{border:3px solid var(--red);position:relative}
+.price.hot::before{content:"おすすめ";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:.78rem;font-weight:700;padding:2px 16px;border-radius:999px}
+.price h3{color:var(--navy)}
+.price .yen{font-family:"Oswald";font-size:2.2rem;color:var(--red);margin:8px 0}
+.price .yen small{font-size:.8rem;color:var(--gray);font-family:"Noto Sans JP"}
+.price p{font-size:.88rem;color:var(--gray)}
+.note{text-align:center;margin-top:20px;font-size:.82rem;color:var(--gray)}
+
+/* faq */
+details{background:#fff;border-radius:10px;padding:16px 20px;margin:0 auto 12px;max-width:760px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+summary{cursor:pointer;font-weight:700;color:var(--navy)}
+summary::marker{color:var(--red)}
+details p{margin-top:10px;font-size:.92rem;color:var(--gray)}
+
+/* contact */
+.contact{background:linear-gradient(160deg,var(--navy),#1c3d6e);color:#fff}
+.contact .sec-title h2{color:#fff}
+form{max-width:640px;margin:0 auto;display:grid;gap:16px}
+label{font-weight:700;font-size:.9rem;display:block;margin-bottom:4px}
+input,select,textarea{width:100%;padding:12px 14px;border:0;border-radius:8px;font:inherit}
+textarea{min-height:120px;resize:vertical}
+button.btn{cursor:pointer;font:inherit;font-weight:700;justify-self:center}
+#thanks{display:none;text-align:center;margin-top:16px;color:#ffd0d0;font-weight:700}
+
+footer{background:#06101f;color:#9aa5b3;text-align:center;padding:28px 0;font-size:.85rem}
+footer .logo{display:block;margin-bottom:6px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:820px){
+  .menu-btn{display:block}
+  nav{position:absolute;top:60px;left:0;right:0;background:var(--navy);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0}
+  nav li a{display:block;padding:14px 24px;border-top:1px solid rgba(255,255,255,.1)}
+  .concept,.cards,.prices{grid-template-columns:1fr}
+  .lessons{grid-template-columns:1fr 1fr}
+  section{padding:64px 0}
+}
+@media(max-width:480px){.lessons{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo en">NOBUSAN<span>_</span>BASE</a>
+    <button class="menu-btn" aria-label="メニュー" id="menuBtn">☰</button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#concept">私たちについて</a></li>
+        <li><a href="#strength">特長</a></li>
+        <li><a href="#lesson">レッスン内容</a></li>
+        <li><a href="#coach">指導者</a></li>
+        <li><a href="#flow">ご利用の流れ</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#faq">Q&amp;A</a></li>
+        <li><a href="#contact">体験申込</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="tag en">PERSONAL LESSON</span>
+      <h1>あなただけの<br>ペースで、<em>もっと上手く。</em></h1>
+      <p>野球塾 NOBUSAN_BASE は、マンツーマン指導の野球パーソナルレッスン。一人ひとりの体・課題・目標に合わせて、「できた！」を一緒に積み重ねます。</p>
+      <div class="btns">
+        <a href="#contact" class="btn primary">無料体験を申し込む</a>
+        <a href="#lesson" class="btn ghost">レッスン内容を見る</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="concept">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">ABOUT</span><h2>NOBUSAN_BASEとは</h2></div>
+      <div class="concept reveal">
+        <div>
+          <p>チーム練習だけでは、なかなか個人の課題まで見てもらえない。そんな悩みを持つ選手のための、完全マンツーマンの野球塾です。</p>
+          <p>フォームの「なぜ？」を言葉と映像で分かりやすく説明し、納得しながら上達できる指導を大切にしています。小学生から中学・高校生、草野球を楽しむ大人の方まで歓迎です。</p>
+          <p>野球が好きな気持ちを、もっと自信に変える場所。それが NOBUSAN_BASE です。</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>1:1</b><small>完全マンツーマン</small></div>
+          <div class="stat"><b>4</b><small>打・投・守・走</small></div>
+          <div class="stat"><b>All</b><small>小学生〜大人まで</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="fire">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">ACTION</span><h2>熱く、かっこよく。</h2></div>
+      <div class="shots">
+
+        <figure class="shot reveal">
+          <svg viewBox="0 0 400 500" role="img" aria-label="守備のイメージ">
+            <g class="fx"><path d="M20 120 L120 100 M0 190 L90 175 M40 60 L130 52" /></g>
+            <g class="fig">
+              <circle cx="190" cy="148" r="23" fill="#05080f" stroke="none"/>
+              <path d="M165 138 Q190 112 218 134 L236 140 L214 150Z" fill="#05080f" stroke="none"/>
+              <path d="M195 185 L172 272" stroke-width="40"/>
+              <path d="M172 272 L240 340 L252 432" stroke-width="22"/>
+              <path d="M166 274 L100 350 L66 432" stroke-width="22"/>
+              <path d="M196 190 L252 262 L298 376" stroke-width="15"/>
+              <path d="M192 192 L238 300 L282 384" stroke-width="15"/>
+              <ellipse cx="304" cy="394" rx="30" ry="22" transform="rotate(-25 304 394)" fill="#05080f" stroke="none"/>
+            </g>
+            <circle class="ball" cx="352" cy="352" r="9"/>
+            <path class="dust" d="M30 440 Q120 420 380 440"/>
+          </svg>
+          <figcaption><b>守備</b><span>FIELDING</span></figcaption>
+        </figure>
+
+        <figure class="shot reveal">
+          <svg viewBox="0 0 400 500" role="img" aria-label="打撃のイメージ">
+            <path class="swing" d="M120 250 Q230 60 390 140"/>
+            <g class="fig">
+              <circle cx="168" cy="112" r="23" fill="#05080f" stroke="none"/>
+              <path d="M143 104 Q168 78 196 100 L214 106 L192 116Z" fill="#05080f" stroke="none"/>
+              <path d="M180 148 L190 252" stroke-width="42"/>
+              <path d="M190 252 L252 340 L262 432" stroke-width="22"/>
+              <path d="M184 254 L140 342 L116 432" stroke-width="22"/>
+              <path d="M184 162 L252 170 L312 190" stroke-width="15"/>
+              <path d="M186 168 L246 196 L306 196" stroke-width="15"/>
+              <path d="M296 196 L384 96" stroke-width="10"/>
+            </g>
+            <circle class="ball" cx="372" cy="214" r="9"/>
+            <g class="fx"><path d="M330 90 L360 60 M392 120 L396 70 M350 230 L396 250"/></g>
+            <path class="dust" d="M30 440 Q120 420 380 440"/>
+          </svg>
+          <figcaption><b>打撃</b><span>BATTING</span></figcaption>
+        </figure>
+
+        <figure class="shot reveal">
+          <svg viewBox="0 0 400 500" role="img" aria-label="投手のイメージ">
+            <g class="fx"><path d="M330 120 L400 110 M350 200 L400 195 M310 60 L390 50"/></g>
+            <g class="fig">
+              <circle cx="170" cy="120" r="23" fill="#05080f" stroke="none"/>
+              <path d="M145 112 Q170 86 198 108 L216 114 L194 124Z" fill="#05080f" stroke="none"/>
+              <path d="M190 152 L200 262" stroke-width="42"/>
+              <path d="M200 262 L270 332 L302 432" stroke-width="22"/>
+              <path d="M194 264 L150 352 L80 422" stroke-width="22"/>
+              <path d="M190 162 L112 142 L72 92" stroke-width="15"/>
+              <path d="M200 168 L265 192 L312 152" stroke-width="15"/>
+              <ellipse cx="318" cy="146" rx="22" ry="26" fill="#05080f" stroke="none"/>
+            </g>
+            <circle class="ball" cx="60" cy="78" r="9"/>
+            <path class="dust" d="M30 440 Q120 420 380 440"/>
+          </svg>
+          <figcaption><b>投手</b><span>PITCHING</span></figcaption>
+        </figure>
+
+      </div>
+      <p class="note" style="color:#ffd9b0">※ イメージイラストです。実際の指導風景の写真に差し替えもできます。</p>
+    </div>
+  </section>
+
+  <section id="strength" class="dark">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">STRENGTH</span><h2>選ばれる3つの理由</h2></div>
+      <div class="cards">
+        <div class="card reveal"><div class="num">01</div><h3>完全オーダーメイド</h3><p>体格・経験・目標をヒアリングし、あなた専用の練習メニューを設計。無駄のない上達ルートを描きます。</p></div>
+        <div class="card reveal"><div class="num">02</div><h3>映像で「見える化」</h3><p>スイングや投球フォームを動画で撮影し、理想との違いをその場で確認。理解が早く、家での自主練にも活きます。</p></div>
+        <div class="card reveal"><div class="num">03</div><h3>ほめて伸ばす指導</h3><p>できたことをしっかり認め、次の一歩を明確に。楽しみながら続けられるから、結果がついてきます。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lesson">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">LESSON</span><h2>レッスン内容</h2></div>
+      <div class="lessons">
+        <div class="lesson reveal"><div class="ph"><img src="img/batting.jpg" alt="バッティング" style="object-position:50% 35%"></div><h3>バッティング</h3><p>スイング軌道・タイミング・体重移動を改善し、強い打球を目指します。</p></div>
+        <div class="lesson reveal"><div class="ph"><img src="img/pitching.jpg" alt="ピッチング" style="object-position:70% 40%"></div><h3>ピッチング</h3><p>フォームの安定、球速アップ、コントロール向上、ケガ予防まで。</p></div>
+        <div class="lesson reveal"><div class="ph"><img src="img/fielding.jpg" alt="守備・送球" style="object-position:50% 25%"></div><h3>守備・送球</h3><p>捕球の基本からステップ、正確な送球までポジション別に指導。</p></div>
+        <div class="lesson reveal"><div class="ph"><img src="img/running.jpg" alt="走塁・体づくり" style="object-position:50% 60%"></div><h3>走塁・体づくり</h3><p>走塁技術や基礎体力、動きづくりで野球に必要な身体を養います。</p></div>
+      </div>
+      <div class="vision reveal">
+        <div class="ic">👁️</div>
+        <div>
+          <span class="en">VISION TRAINING</span>
+          <h3>ビジョントレーニング</h3>
+          <p>身体を動かすのは脳。そして脳は、主に目からの情報を必要としています。周辺視野や動体視力などの視覚機能と脳を鍛えることで、パフォーマンスアップにつなげていきます。</p>
+          <p class="future">今後は、子どもの発達期や、中高齢者の視覚機能の衰えの回復にも取り入れていく予定です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach" class="dark">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">COACH</span><h2>指導者紹介</h2></div>
+      <div class="coach reveal">
+        <div class="photo"><img src="coach.jpg" alt="指導者 矢野修央"></div>
+        <div>
+          <p class="role">代表・指導者</p>
+          <h3>矢野 修央 <small class="en">YANO NOBUO</small></h3>
+          <p>選手一人ひとりと向き合い、「なぜそう動くのか」を分かりやすく伝える指導を大切にしています。野球が好きな気持ちを、自信と結果につなげるお手伝いをします。</p>
+          <h4>指導者資格</h4>
+          <ul>
+            <li>全日本野球協会 公認野球指導者 基礎U-15・基礎U-12</li>
+            <li>全日本野球協会 アマチュア野球公認1級審判員</li>
+            <li>全日本軟式野球連盟 公認学童コーチ</li>
+            <li>日本スポーツ協会 公認スポーツ指導者 スタートコーチ（スポーツ少年団）</li>
+            <li>Visionup®ビジョントレーナー</li>
+          </ul>
+          <h4>指導歴</h4>
+          <ul>
+            <li>高校野球 約10年</li>
+            <li>木花少年野球クラブ 令和4年12月～</li>
+            <li>宮崎HINATAベースボールクラブ 令和6年10月～（令和7年春 本格始動）</li>
+            <li>NOBUSAN_BASE 令和7年2月～ 捕る・投げる・打つなどの技術指導やビジョントレーニング指導</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow" style="background:#efe9da">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">FLOW</span><h2>ご利用の流れ</h2></div>
+      <ol class="flow">
+        <li class="reveal"><h3>お問い合わせ・体験申込</h3><p>下のフォームから、希望日時やお悩みをお知らせください。</p></li>
+        <li class="reveal"><h3>無料体験レッスン</h3><p>現在のレベルや課題を確認し、指導の進め方を体験していただきます。</p></li>
+        <li class="reveal"><h3>目標設定・メニュー作成</h3><p>目標を共有し、あなた専用の練習プランをご提案します。</p></li>
+        <li class="reveal"><h3>レッスン開始</h3><p>定期的にレッスンを重ね、成長を一緒に確認していきます。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">PRICE</span><h2>料金のご案内</h2></div>
+      <div class="prices">
+        <div class="price reveal"><h3>体験レッスン</h3><div class="yen">無料<small></small></div><p>約60分<br>まずはお気軽に</p></div>
+        <div class="price hot reveal"><h3>通常レッスン</h3><div class="yen">¥3,000<small> /1日</small></div><p>マンツーマン指導<br>動画フィードバック付き</p></div>
+        <div class="price reveal"><h3>回数券</h3><div class="yen">¥10,000<small> /4回</small></div><p>継続して上達したい方に</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background:#efe9da">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">Q&amp;A</span><h2>よくあるご質問</h2></div>
+      <details class="reveal"><summary>初心者や未経験でも大丈夫ですか？</summary><p>もちろん大丈夫です。グローブの持ち方・ボールの握り方など基本から丁寧にお教えします。</p></details>
+      <details class="reveal"><summary>道具は持っていく必要がありますか？</summary><p>グローブ・バット・動きやすい服装・シューズをご持参ください。貸し出しについてはご相談ください。</p></details>
+      <details class="reveal"><summary>保護者の見学はできますか？</summary><p>はい、ご見学いただけます。指導内容を共有しますので、ご家庭での声かけにもお役立てください。</p></details>
+      <details class="reveal"><summary>雨の日はどうなりますか？</summary><p>天候により日程の振替をご相談させていただきます。</p></details>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="sec-title reveal"><span class="en">CONTACT</span><h2>無料体験のお申し込み</h2></div>
+      <form id="form" class="reveal">
+        <div><label for="name">お名前</label><input id="name" required></div>
+        <div><label for="mail">メールアドレス</label><input id="mail" type="email" required></div>
+        <div><label for="age">学年・年齢</label>
+          <select id="age"><option>小学生</option><option>中学生</option><option>高校生</option><option>大人</option></select></div>
+        <div><label for="msg">ご希望・お悩み</label><textarea id="msg" placeholder="例：打撃でボールが前に飛ばない、など"></textarea></div>
+        <button class="btn primary" type="submit">送信する</button>
+        <p id="thanks">送信ありがとうございました！（※デモ表示です）</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="#top" class="logo en">NOBUSAN<span>_</span>BASE</a>
+  野球塾 パーソナルレッスン<br>
+  指導者：矢野修央<br>
+  &copy; NOBUSAN_BASE
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+document.getElementById('menuBtn').onclick=()=>nav.classList.toggle('open');
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('thanks').style.display='block';
+  e.target.reset();
+});
+</script>
+</body>
+</html>
