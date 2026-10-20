@@ -31,8 +31,8 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .logo{color:#fff;font-size:1.4rem;font-weight:700}
 .logo span{color:var(--red)}
 .logo img{height:44px;width:auto;vertical-align:middle;margin-right:8px;border-radius:6px}
-/* ヘッダーのロゴ：正方形のロゴ全体が円の内側に収まるよう、円形の枠の中に縮小して配置 */
-header .logo img{box-sizing:border-box;width:52px;height:52px;padding:8px;border-radius:50%;background:var(--navy2);border:2px solid var(--red);object-fit:contain}
+/* ヘッダー・フッターのロゴ：正方形のロゴ全体が円の内側に収まるよう、円形の枠の中に縮小して配置 */
+header .logo img,footer .logo img{box-sizing:border-box;width:52px;height:52px;padding:8px;border-radius:50%;background:var(--navy2);border:2px solid var(--red);object-fit:contain}
 nav ul{display:flex;gap:24px;list-style:none}
 nav a{color:#fff;font-size:.9rem;font-weight:500}
 nav a:hover{color:#ff8b8b}
