@@ -46,12 +46,13 @@ nav a:hover{color:#ff8b8b}
   background:#fff;opacity:.07;
   box-shadow:inset 0 0 0 14px rgba(214,40,40,.0);
 }
-.hero{--s:min(320px,48vw)}
+.hero{--d:clamp(170px,24vw,330px)} /* 点線の円の直径：画面幅に応じて縮め、文字にかぶらないようにする */
 .hero::after{
-  content:"";position:absolute;right:24px;bottom:24px;width:calc(var(--s)*1.5);height:calc(var(--s)*1.5);border-radius:50%;
+  content:"";position:absolute;right:calc(var(--d)/-6);bottom:calc(var(--d)/-6);width:var(--d);height:var(--d);border-radius:50%;
   border:6px dashed rgba(214,40,40,.45);
 }
-.hero-logo{position:absolute;right:calc(24px + var(--s)*.25);bottom:calc(24px + var(--s)*.25);width:var(--s);height:var(--s);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+/* 円の中心（右下から d/3）に合わせ、画面内に全体が収まる最大サイズ */
+.hero-logo{position:absolute;right:4px;bottom:4px;width:calc(var(--d)*2/3 - 8px);height:calc(var(--d)*2/3 - 8px);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.45)}
 .hero .wrap{position:relative;z-index:1;padding-top:80px}
 .hero .tag{display:inline-block;background:var(--red);padding:2px 14px;font-size:.85rem;font-weight:700;margin-bottom:18px}
 .hero h1{font-size:clamp(2.2rem,6.5vw,4.4rem);line-height:1.25;font-weight:900}
