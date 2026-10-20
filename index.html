@@ -31,8 +31,6 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .logo{color:#fff;font-size:1.4rem;font-weight:700}
 .logo span{color:var(--red)}
 .logo img{height:44px;width:auto;vertical-align:middle;margin-right:8px;border-radius:6px}
-.header-logo{display:flex;margin-left:16px}
-.header-logo img{height:44px;width:auto;border-radius:6px}
 nav ul{display:flex;gap:24px;list-style:none}
 nav a{color:#fff;font-size:.9rem;font-weight:500}
 nav a:hover{color:#ff8b8b}
@@ -52,6 +50,8 @@ nav a:hover{color:#ff8b8b}
   content:"";position:absolute;right:-60px;bottom:-60px;width:360px;height:360px;border-radius:50%;
   border:6px dashed rgba(214,40,40,.45);
 }
+.hero-logo{position:absolute;right:20px;bottom:20px;width:200px;height:200px;object-fit:cover;border-radius:50%;opacity:.95;box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+@media(max-width:700px){.hero-logo{width:140px;height:140px;right:20px;bottom:20px}}
 .hero .wrap{position:relative;z-index:1;padding-top:80px}
 .hero .tag{display:inline-block;background:var(--red);padding:2px 14px;font-size:.85rem;font-weight:700;margin-bottom:18px}
 .hero h1{font-size:clamp(2.2rem,6.5vw,4.4rem);line-height:1.25;font-weight:900}
@@ -235,12 +235,12 @@ footer .ig:hover{text-decoration:underline}
         <li><a href="https://www.instagram.com/nobusan_base/" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
     </nav>
-    <a href="#top" class="header-logo" aria-label="トップへ"><img src="img/logo.jpg" alt="NB ロゴ"></a>
   </div>
 </header>
 
 <main id="top">
   <div class="hero">
+    <img class="hero-logo" src="img/logo.jpg" alt="NOBUSAN_BASE ロゴ">
     <div class="wrap">
       <span class="tag en">PERSONAL LESSON</span>
       <h1>あなただけの<br>ベースで、<em>もっと上手く。</em></h1>
